@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    	<link rel="stylesheet" type="text/css" href="static/css/main.css" th:href="@{/css/main.css}">
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    	<script type="text/javascript" th:src="@{/js/application.js}"></script>
+        <title>Tracing App</title>
+    </head>
+    <body>
+    	<div class="row">
+	    	<div class="col-sm-12"><br></div>
+	    </div>
+	    <div class="row">
+	    	<div class="col-sm-1"></div>
+	    	<div class="col-sm-10 text-white bg-dark"><br>
+	    		<div ng-app="traceApp" ng-controller="traceController">
+	    			<div class="row">
+	    				<div class="col-sm-2">
+	    					IP Number:<br><br>
+	    				</div>
+	    				<div class="col-sm-8">
+	    					<input type="text" ng-model="ipNumber"> <a ng-href='#' class="btn btn-primary" ng-click='traceInternetProtocolNumber()'>Trace</a><br><br>
+	    				</div>
+	    				<div class="col-sm-2">
+	    				</div>
+	    			</div>
+	    			<div class="row">
+	    				<div class="col-sm-2">
+	    					IP number:<br>
+	    					Actual time:<br>
+	    					Country name:<br>
+	    					Country code:<br>
+	    					Country languages:<br>
+	    					Country currencies:<br>
+	    					Country actual time:<br>
+	    					Distance from BsAs:<br><br>
+	    				</div>
+	    				<div class="col-sm-8">
+	    					{{information.ipNumber}}<br>
+	    					{{information.actualDateTime}}<br>
+	    					{{information.countryName}}<br>
+	    					{{information.countryCode}}<br>
+	    					{{information.countryLanguages}}<br>
+	    					{{information.countryCurrencies}}<br>
+	    					{{information.countryActualDateTime}}<br>
+	    					{{information.distanceFromBsAs}}<br><br>
+	    				</div>
+	    				<div class="col-sm-2">
+	    				</div>
+	    			</div>
+	    			<div class="row">
+	    				<div class="col-sm-2">
+	    					Furthest request:<br>
+	    				</div>
+	    				<div class="col-sm-8">
+	    					{{furthest}} <a ng-href='#' class="btn btn-primary" ng-click='getFurthestRequest()'>Get</a><br>
+	    				</div>
+	    				<div class="col-sm-2">
+	    				</div>
+	    			</div>
+	    			<div class="row">
+	    				<div class="col-sm-2">
+	    					Nearest request:<br>
+	    				</div>
+	    				<div class="col-sm-8">
+	    					{{nearest}} <a ng-href='#' class="btn btn-primary" ng-click='getNearestRequest()'>Get</a><br>
+	    				</div>
+	    				<div class="col-sm-2">
+	    				</div>
+	    			</div>
+	    			<div class="row">
+	    				<div class="col-sm-2">
+	    					Average requests:<br>
+	    				</div>
+	    				<div class="col-sm-8">
+	    					{{average}} <a ng-href='#' class="btn btn-primary" ng-click='getAverageRequests()'>Get</a><br>
+	    				</div>
+	    				<div class="col-sm-2">
+	    				</div>
+	    			</div>
+	    			<div class="row">
+	    				<div class="col-sm-2">
+	    				</div>
+	    				<div class="col-sm-8">
+	    				</div>
+	    				<div class="col-sm-2">
+	    					<br><br>
+	    					<form th:action="@{/logout}" method="post">
+					            <input type="submit" class="btn btn-primary" value="Close session"/>
+					        </form>
+	    				</div>
+	    			</div>
+	    		</div>
+	    	<br></div>
+	    	<div class="col-sm-1"></div>
+	    </div>
+    </body>
+</html>

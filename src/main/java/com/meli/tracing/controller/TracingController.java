@@ -53,7 +53,7 @@ public class TracingController {
 		returnInfo.setDistanceFromBsAs(distanceFromBsAs.toString() + TracingConst.BSAS_KMS_LAT_LONG_DIST.replace("{lat}", lat.toString()).replace("{lng}", lng.toString()));
 		
 		tracingService.saveCountryRequest(distanceFromBsAs, ipCountryInfo);
-		
+		//prueba master
 		return returnInfo;
 	}
 	
